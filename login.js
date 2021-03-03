@@ -11,6 +11,7 @@ class Login extends React.Component {
     if (this.state.selected) {
       loginGreet
         .setLanguage(value)
+        // TODO: change this, this is jQuery :)) Add react equalent to Greet.js
         .HTMLGreeting('#greeting', true)
         .log()
     }
