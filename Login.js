@@ -28,7 +28,7 @@ class Login extends React.Component {
     return (
       <div>
         <h1>login using react ↓ :))</h1>
-        <select id='lang' onChange={this.onChange}>
+        <select id='language' onChange={this.onChange}>
           <option value='en'>English</option>
           <option value='fi'>Finnish</option>
           <option value='ge'>German</option>
