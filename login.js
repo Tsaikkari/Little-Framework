@@ -8,19 +8,17 @@ class Login extends React.Component {
 
   onChange = (e) => {
     let value = e.target.value;
-    if (this.state.selected) {
-      loginGreet
-        .setLanguage(value)
-        // TODO: change this, this is jQuery :)) Add react equalent to Greet.js
-        .HTMLGreeting('#greeting', true)
-        .log()
-    }
+    this.setState({ selected: true })
+    loginGreet
+      .setLanguage(value)
+      .HTMLGreeting('#greeting', true)
+      .log()
   }
 
   render() {
     return (
       <div>
-        <select id='lang' onChange={this.setState({ selected: true })}>
+        <select id='lang' onChange={onChange}>
           <option value=''>Select Language</option>
           <option value='en'>English</option>
           <option value='fi'>Finnish</option>

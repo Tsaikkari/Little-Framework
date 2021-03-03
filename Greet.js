@@ -80,12 +80,12 @@
       },
   
       HTMLGreeting: function HTMLGreeting(selector, formal) {
-        if (!$) {
-          throw 'jQuery not loaded';
-        }
+        // if (!$) {
+        //   throw 'jQuery not loaded';
+        // }
   
         if (!selector) {
-          throw 'Missing jQuery selector';
+          throw 'Missing selector';
         }
   
         var msg = void 0;
@@ -95,7 +95,12 @@
           msg = this.greeting();
         }
         // update value, set html to the greeting
-        $(selector).html(msg);
+        if (!$) {
+          $(selector).html(msg);
+        } else {
+          document.querySelector(selector).innerHTML(msg)
+        }
+        
         return this;
       }
     };
