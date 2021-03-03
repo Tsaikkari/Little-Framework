@@ -8,21 +8,18 @@ class Login extends React.Component {
 
   onChange = (e) => {
     let value = e.target.value;
-    this.setState(() => {
-      return {
-        selected: true
-      }
-    })
-    loginGreet
-      .setLanguage(value)
-      .HTMLGreeting('#greeting', true)
-      .log()
+    if (this.state.selected) {
+      loginGreet
+        .setLanguage(value)
+        .HTMLGreeting('#greeting', true)
+        .log()
+    }
   }
 
   render() {
     return (
       <div>
-        <select id='lang' onChange={onChange}>
+        <select id='lang' onChange={this.setState({ selected: true })}>
           <option value=''>Select Language</option>
           <option value='en'>English</option>
           <option value='fi'>Finnish</option>
@@ -36,3 +33,6 @@ class Login extends React.Component {
 
 const domContainer = document.querySelector('#login')
 ReactDOM.render(Login, domContainer)
+
+
+
