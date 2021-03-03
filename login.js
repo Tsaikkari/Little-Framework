@@ -8,7 +8,11 @@ class Login extends React.Component {
 
   onChange = (e) => {
     let value = e.target.value;
-    this.setState({ selected: true })
+    this.setState(() => {
+      return {
+        selected: true
+      }
+    })
     loginGreet
       .setLanguage(value)
       .HTMLGreeting('#greeting', true)
