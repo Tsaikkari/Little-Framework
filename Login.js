@@ -8,7 +8,6 @@ class Login extends React.Component {
 
   onChange = (e) => {
     let val = e.target.value;
-    console.log('value1', val)
     this.setState(() => {
       return {
         selected: true,
