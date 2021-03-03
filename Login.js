@@ -20,7 +20,7 @@ class Login extends React.Component {
     let loginGreet = G$('John', 'Doe');
     loginGreet
       .setLanguage(this.state.value)
-      .HTMLGreeting('#greetings', true)
+      .HTMLOrJSXGreeting('#greetings', false)
       .log()
   }
 

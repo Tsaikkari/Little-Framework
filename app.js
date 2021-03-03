@@ -12,5 +12,5 @@ $('#login').click(function () {
     $('#logindiv').hide();
 
     // set the chosen language, chain a method that updates h1 and log to the console
-    loginGreetr.setLanguage($('#lang').val()).HTMLGreeting('#greeting', true).log();
+    loginGreetr.setLanguage($('#lang').val()).HTMLOrJSXGreeting('#greeting', true).log();
 });

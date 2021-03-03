@@ -84,7 +84,7 @@
       return this;
     },
 
-    HTMLGreeting: function HTMLGreeting(selector, formal) {
+    HTMLOrJSXGreeting: function HTMLOrJSXGreeting(selector, formal) {
       // if (!$) {
       //   throw 'jQuery not loaded';
       // }
@@ -123,7 +123,7 @@
   };
 
   // the proto property of the object created by the Greet.init function points to 
-  // the prototype property of the Greetr function thus giving the object access to its properties via 'this' keyword
+  // the prototype property of the Greetr function thus giving the object access to its properties and methods via 'this' keyword
   Greet.init.prototype = Greet.prototype;
 
   // attach Greet to the global object so that I can call the function anywhere
