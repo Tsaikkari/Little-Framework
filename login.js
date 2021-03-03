@@ -8,18 +8,21 @@ class Login extends React.Component {
 
   onChange = (e) => {
     let value = e.target.value;
-    if (this.state.selected) {
-      loginGreet
-        .setLanguage(value)
-        .HTMLGreeting('#greeting', true)
-        .log()
-    }
+    this.setState(() => {
+      return {
+        selected: true
+      }
+    })
+    loginGreet
+      .setLanguage(value)
+      .HTMLGreeting('#greeting', true)
+      .log()
   }
 
   render() {
     return (
       <div>
-        <select id='lang' onChange={this.setState({ selected: true })}>
+        <select id='lang' onChange={onChange}>
           <option value=''>Select Language</option>
           <option value='en'>English</option>
           <option value='fi'>Finnish</option>
