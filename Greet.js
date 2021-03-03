@@ -1,4 +1,3 @@
-
 ;(function (global, $) {
   var Greet = function Greetr(firstName, lastName, language) {
     // instead of being a constructor and needing to use 'new', return another constructor function's generated object
@@ -107,7 +106,7 @@
   };
 
   Greet.init = function (firstName, lastName, language) {
-    // building a new object that's going to be returned by the Greet function
+    // building a new object that's going to be returned by the Greetr function
     // this = empty object created by new
     // no need to call 'new'
     var self = this;
@@ -118,7 +117,7 @@
   };
 
   // the proto property of an object created by the Greet.init function points to 
-  // the prototype property of the Greet function
+  // the prototype property of the Greetr function thus giving the object access to its properties via 'this' keyword
   Greet.init.prototype = Greet.prototype;
 
   // attach Greet to the global object so that I can call the function anywhere

@@ -7,12 +7,16 @@ class Login extends React.Component {
   }
 
   onChange = (e) => {
-    let value = e.target.value;
     this.setState(() => {
       return {
         selected: true
       }
     })
+  }
+
+  onClick = (e) => {
+    let value = e.target.value;
+    let loginGreet = G$('John', 'Doe');
     loginGreet
       .setLanguage(value)
       .HTMLGreeting('#greeting', true)
@@ -28,7 +32,12 @@ class Login extends React.Component {
           <option value='fi'>Finnish</option>
           <option value='ge'>German</option>
         </select>
-        <input type='button' value='Login' id='login' />
+        <input type='button' onClick={onClick} value='Login' id='login' />
+        <div>
+        {this.state.selected && 
+          <h1 id="greetings"></h1>
+        }
+        </div>
       </div>
     )
   }
