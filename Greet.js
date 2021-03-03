@@ -3,6 +3,7 @@
     // instead of being a constructor and needing to use 'new', return another constructor function's generated object
     return new Greet.init(firstName, lastName, language);
   };
+
   // these are never directly accessible because they are in scope of IIFE.
   var supportedLanguages = ['en', 'fi', 'ge'];
 
@@ -24,7 +25,10 @@
     ge: 'Eingeloggt'
 
     // will be exposed inside the prototype object
-  };Greet.prototype = {
+  };
+
+  Greet.prototype = {
+
     fullName: function fullName() {
       return this.firstName + ' ' + this.lastName;
     },
@@ -74,6 +78,7 @@
     setLanguage: function setLanguage(lang) {
       // set language
       this.language = lang;
+      // validate language
       this.validate();
       //make chainable
       return this;
@@ -107,16 +112,17 @@
 
   Greet.init = function (firstName, lastName, language) {
     // building a new object that's going to be returned by the Greetr function
-    // this = empty object created by new
-    // no need to call 'new'
+    // this = empty object created by 'new' keyword
+    // no need to call 'new' because of alias
+
     var self = this;
     // setting up default properties
     self.firstName = firstName || '', self.lastName = lastName || '', self.language = language || 'en';
-
+    // validate language of the object
     self.validate();
   };
 
-  // the proto property of an object created by the Greet.init function points to 
+  // the proto property of the object created by the Greet.init function points to 
   // the prototype property of the Greetr function thus giving the object access to its properties via 'this' keyword
   Greet.init.prototype = Greet.prototype;
 

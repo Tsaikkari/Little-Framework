@@ -3,36 +3,38 @@
 class Login extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { selected: false }
+    this.state = { selected: false, value: '' }
   }
 
   onChange = (e) => {
+    let val = e.target.value;
+    console.log('value1', val)
     this.setState(() => {
       return {
-        selected: true
+        selected: true,
+        value: val
       }
     })
   }
 
-  onClick = (e) => {
-    let value = e.target.value;
+  onClick = () => {
     let loginGreet = G$('John', 'Doe');
     loginGreet
-      .setLanguage(value)
-      .HTMLGreeting('#greeting', true)
+      .setLanguage(this.state.value)
+      .HTMLGreeting('#greetings', true)
       .log()
   }
 
   render() {
     return (
       <div>
-        <select id='lang' onChange={onChange}>
-          <option value=''>Select Language</option>
+        <h1>login using react ↓ :))</h1>
+        <select id='lang' onChange={this.onChange}>
           <option value='en'>English</option>
           <option value='fi'>Finnish</option>
           <option value='ge'>German</option>
         </select>
-        <input type='button' onClick={onClick} value='Login' id='login' />
+        <input type='button' value="Login" onClick={this.onClick}></input>
         <div>
         {this.state.selected && 
           <h1 id="greetings"></h1>
@@ -43,8 +45,8 @@ class Login extends React.Component {
   }
 }
 
-const domContainer = document.querySelector('#login')
-ReactDOM.render(Login, domContainer)
+const domContainer = document.querySelector('#logging')
+ReactDOM.render(<Login />, domContainer)
 
 
 
